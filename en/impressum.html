@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,37 +7,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="../styles/main.css" />
 </head>
 <body>
-
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="images/logo.png" alt="Aachener Trompetenforum" /></a>
+      <a href="/en/" class="nav-logo"><img src="../images/logo.png" alt="Aachener Trompetenforum" /></a>
       <div class="nav-links">
-        <a href="/#about">Über uns</a>
+        <a href="/en/#about">About</a>
         <a href="news.html">News</a>
         <a href="ensembles.html">Ensembles</a>
-        <a href="/#mitglieder">Mitglieder</a>
-        <a href="kontakt.html">Kontakt</a>
+        <a href="barockorchester.html">Baroque Orchestra</a>
+        <a href="/en/#members">Members</a>
+        <a href="kontakt.html">Contact</a>
       </div>
       <div class="nav-actions">
+        <div class="nav-lang"><a href="/impressum.html">DE</a><span>/</span><a href="impressum.html" class="active">EN</a></div>
         <button class="theme-toggle" id="themeToggle"><span class="icon-sun">☀</span><span class="icon-moon">☽</span></button>
         <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
       </div>
     </div>
     <div class="nav-mobile" id="navMobile">
-      <a href="/#about">Über uns</a>
-      <a href="news.html">News</a>
-      <a href="ensembles.html">Ensembles</a>
-      <a href="/#mitglieder">Mitglieder</a>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="/en/#about">About</a><a href="news.html">News</a><a href="ensembles.html">Ensembles</a><a href="barockorchester.html">Baroque Orchestra</a><a href="/en/#members">Members</a><a href="kontakt.html">Contact</a>
     </div>
   </nav>
 
   <section class="page-hero">
     <div class="container">
-      <span class="section-label">Rechtliches</span>
+      <span class="section-label">Legal</span>
       <h1>Impressum</h1>
     </div>
   </section>
@@ -45,31 +42,28 @@
   <section class="section legal-section">
     <div class="container">
       <div class="legal-content">
-        <h2>Angaben gemäß § 5 TMG</h2>
+        <h2>Information according to § 5 TMG</h2>
         <p>
           Aachener Trompetenforum e.V.<br />
           Eckenerstraße 29<br />
           52078 Aachen<br />
-          Deutschland
+          Germany
         </p>
 
-        <h2>Kontakt</h2>
-        <p>
-          E-Mail: <a href="mailto:contact@trompetenforum.rwth-aachen.de">contact@trompetenforum.rwth-aachen.de</a>
-        </p>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:contact@trompetenforum.rwth-aachen.de">contact@trompetenforum.rwth-aachen.de</a></p>
 
-        <h2>Vereinsregister</h2>
-        <p>
-          Registergericht: Amtsgericht Aachen<br />
-          Registernummer: VR 5691
-        </p>
+        <h2>Register of Associations</h2>
+        <p>Registry Court: Amtsgericht Aachen<br />Register Number: VR 5691</p>
 
-        <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+        <h2>Responsible for content according to § 55 Abs. 2 RStV</h2>
         <p>
-          Martin Reugels, Fabian Hanner (Vorstand)<br />
+          Martin Reugels, Fabian Hanner (Board)<br />
           Eckenerstraße 29<br />
           52078 Aachen
         </p>
+
+        <p class="legal-note">This is an English translation for convenience. The German version is legally binding.</p>
       </div>
     </div>
   </section>
@@ -78,29 +72,28 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="images/logo.png" alt="Aachener Trompetenforum" class="footer-logo" />
+          <img src="../images/logo.png" alt="Aachener Trompetenforum" class="footer-logo" />
           <p class="footer-tagline">Brass. Refined.</p>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
-          <a href="/#about">Über uns</a>
-          <a href="news.html">News &amp; Konzerte</a>
+          <a href="/en/#about">About</a>
+          <a href="news.html">News &amp; Concerts</a>
           <a href="ensembles.html">Ensembles</a>
-          <a href="kontakt.html">Kontakt</a>
+          <a href="kontakt.html">Contact</a>
         </div>
         <div class="footer-col">
-          <h4>Rechtliches</h4>
+          <h4>Legal</h4>
           <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+          <a href="datenschutz.html">Privacy Policy</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Aachener Trompetenforum e.V. · Aachen</span>
+        <span>© 2026 Aachener Trompetenforum e.V. · Aachen, Germany</span>
         <span>contact@trompetenforum.rwth-aachen.de</span>
       </div>
     </div>
   </footer>
-
-  <script src="scripts/main.js"></script>
+  <script src="../scripts/main.js"></script>
 </body>
 </html>
