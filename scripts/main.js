@@ -69,46 +69,7 @@ function initReveal() {
 
 document.addEventListener('DOMContentLoaded', initReveal);
 
-// --- WORLD MAP TABS & TOOLTIP ---
-function initMap() {
-  const tabs = document.querySelectorAll('.map-tab');
-  const views = document.querySelectorAll('.map-view');
-  const tooltip = document.getElementById('mapTooltip');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.map;
-      tabs.forEach(t => t.classList.remove('active'));
-      views.forEach(v => v.classList.remove('active'));
-      tab.classList.add('active');
-      document.querySelector(`.map-view[data-view="${target}"]`)?.classList.add('active');
-    });
-  });
-
-  document.querySelectorAll('.map-dot').forEach(dot => {
-    dot.addEventListener('mouseenter', (e) => {
-      if (!tooltip) return;
-      const city = dot.dataset.city;
-      const wrap = dot.closest('.world-map-svg-wrap');
-      const wrapRect = wrap.getBoundingClientRect();
-      const svg = dot.closest('svg');
-      const pt = svg.createSVGPoint();
-      pt.x = dot.cx.baseVal.value;
-      pt.y = dot.cy.baseVal.value;
-      const screenPt = pt.matrixTransform(svg.getScreenCTM());
-
-      tooltip.textContent = city;
-      tooltip.style.left = (screenPt.x - wrapRect.left) + 'px';
-      tooltip.style.top = (screenPt.y - wrapRect.top) + 'px';
-      tooltip.classList.add('visible');
-      wrap.style.position = 'relative';
-      wrap.appendChild(tooltip);
-    });
-    dot.addEventListener('mouseleave', () => {
-      tooltip?.classList.remove('visible');
-    });
-  });
-}
+// --- WORLD MAP: handled inline per-page (D3-based), see ensembles.html
 
 // --- TESTIMONIAL CAROUSEL ---
 function initTestimonials() {
@@ -153,6 +114,5 @@ function initTestimonials() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initMap();
   initTestimonials();
 });
