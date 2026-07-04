@@ -718,43 +718,68 @@ p { color: var(--text-secondary); line-height: 1.8; font-size: 16px; font-weight
 }
 
 /* ============================================
-   LOGO TICKER (wordmark style)
+   LOGO TICKER (image logos)
    ============================================ */
-.ticker-item.is-logo {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.01em;
+.ticker-item.is-logo-img {
+  padding: 14px 44px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ticker-item.is-logo-img img {
+  height: 30px; width: auto; max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.55);
+  transition: filter var(--transition), transform var(--transition);
+}
+[data-theme="dark"] .ticker-item.is-logo-img img {
+  filter: grayscale(100%) opacity(0.5) invert(1) brightness(1.5);
+}
+.ticker-item.is-logo-img:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.06);
+}
+[data-theme="dark"] .ticker-item.is-logo-img:hover img {
+  filter: grayscale(0%) opacity(1) invert(0);
 }
 
 /* ============================================
-   IMAGE GALLERY (rotating)
+   GALLERY — CONTINUOUS MARQUEE
    ============================================ */
-.gallery-section { background: var(--bg); }
+.gallery-section { background: var(--bg); overflow: hidden; }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.gallery-marquee-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+
+.gallery-marquee {
+  display: flex;
   gap: 16px;
+  width: max-content;
+  animation: galleryScroll 42s linear infinite;
+}
+.gallery-marquee:hover { animation-play-state: paused; }
+
+@keyframes galleryScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .gallery-item {
   position: relative;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  aspect-ratio: 4/5;
+  width: 340px;
+  height: 420px;
+  flex-shrink: 0;
   cursor: pointer;
 }
-.gallery-item:first-child { grid-row: span 2; aspect-ratio: 4/9.5; }
-
 .gallery-item img {
   width: 100%; height: 100%; object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16,1,0.3,1), filter 0.4s ease;
   filter: grayscale(15%);
 }
 .gallery-item:hover img { transform: scale(1.06); filter: grayscale(0%); }
-
 .gallery-item::after {
   content: '';
   position: absolute; inset: 0;
@@ -762,13 +787,33 @@ p { color: var(--text-secondary); line-height: 1.8; font-size: 16px; font-weight
   pointer-events: none;
 }
 
-@media (max-width: 900px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item:first-child { grid-row: span 1; aspect-ratio: 4/5; }
+@media (max-width: 768px) {
+  .gallery-item { width: 260px; height: 320px; }
 }
-@media (max-width: 560px) {
-  .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item:first-child { aspect-ratio: 4/5; }
+
+/* ============================================
+   NEWS — CONTINUOUS MARQUEE
+   ============================================ */
+.news-marquee-wrap {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+.news-marquee {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: newsScroll 50s linear infinite;
+}
+.news-marquee:hover { animation-play-state: paused; }
+@keyframes newsScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.news-marquee .news-card { width: 360px; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .news-marquee .news-card { width: 300px; }
 }
 
 /* ============================================
@@ -843,6 +888,13 @@ p { color: var(--text-secondary); line-height: 1.8; font-size: 16px; font-weight
 }
 .login-note::before { content: '🔒'; font-size: 11px; }
 
+.login-form-footer {
+  margin-top: 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 12px;
+}
+.login-form-footer a { color: var(--gold); }
+
 @media (max-width: 900px) {
   .members-split { grid-template-columns: 1fr; }
   .members-visual { min-height: 280px; }
@@ -850,8 +902,86 @@ p { color: var(--text-secondary); line-height: 1.8; font-size: 16px; font-weight
 }
 
 /* ============================================
-   BAROCK PAGE
+   PREMIUM TOUCHES
    ============================================ */
+
+/* Subtle grain texture overlay for depth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Gold ambient glow behind hero headline */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 10%; left: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(196,154,42,0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Refined stat number with subtle glow in dark mode */
+[data-theme="dark"] .stat-number {
+  text-shadow: 0 0 24px rgba(196,154,42,0.25);
+}
+
+/* Section labels with subtle letter animation on hover for interactive elements */
+.footer-col h4 {
+  position: relative;
+}
+
+/* Gold accent scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--surface-border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* Selection color */
+::selection {
+  background: var(--gold-subtle);
+  color: var(--text-primary);
+}
+
+/* Subtle vignette on gallery/news marquee edges already handled by mask-image */
+
+/* Navbar subtle bottom glow when scrolled */
+.navbar.scrolled {
+  box-shadow: 0 1px 0 var(--gold-subtle);
+}
+
+/* CTA button shine sweep effect */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.6s ease;
+}
+.btn-primary:hover::before { left: 130%; }
+
+/* Login card refined focus glow */
+.login-form input:focus {
+  box-shadow: 0 0 0 3px var(--gold-subtle);
+}
+.form-field input:focus, .form-field textarea:focus {
+  box-shadow: 0 0 0 3px var(--gold-subtle);
+}
 .barock-hero {
   position: relative;
   min-height: 70vh;
@@ -894,4 +1024,62 @@ p { color: var(--text-secondary); line-height: 1.8; font-size: 16px; font-weight
 
 @media (max-width: 900px) {
   .barock-intro-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ============================================
+   AMBIENT GLOW EFFECTS
+   ============================================ */
+.about-section {
+  position: relative;
+}
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 10%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--gold-subtle) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.about-section .container { position: relative; z-index: 1; }
+
+.piccolo-section {
+  position: relative;
+  overflow: hidden;
+}
+.piccolo-section::before {
+  content: '';
+  position: absolute;
+  bottom: -15%; left: -8%;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, var(--gold-subtle) 0%, transparent 70%);
+  pointer-events: none;
+}
+.piccolo-section .container { position: relative; z-index: 1; }
+
+.news-section { position: relative; overflow: hidden; }
+.news-section::before {
+  content: '';
+  position: absolute;
+  top: -10%; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 300px;
+  background: radial-gradient(ellipse, var(--gold-subtle) 0%, transparent 70%);
+  pointer-events: none;
+}
+.news-section .container { position: relative; z-index: 1; }
+
+/* Subtle noise/grain texture overlay for premium feel */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Gold glow on hero headline */
+.hero-headline {
+  filter: drop-shadow(0 0 40px rgba(196,154,42,0.15));
 }
