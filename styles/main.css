@@ -1391,13 +1391,14 @@ body::before {
 
 .country-path {
   fill: var(--bg-alt2);
-  stroke: var(--surface-border);
-  stroke-width: 0.6;
+  stroke: var(--text-tertiary);
+  stroke-width: 1.1;
   transition: fill var(--transition);
 }
 [data-theme="dark"] .country-path {
   fill: #16140d;
-  stroke: rgba(196,154,42,0.12);
+  stroke: rgba(196,154,42,0.4);
+  stroke-width: 1.1;
 }
 
 .city-dot .map-dot {
