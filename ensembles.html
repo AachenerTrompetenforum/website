@@ -98,9 +98,16 @@
         </div>
       </div>
 
-      <!-- PICCOLO IMAGE -->
-      <div class="piccolo-showcase" data-reveal>
-        <img src="images/piccolos.jpg" alt="Piccolotrompeten im Detail" />
+      <!-- PICCOLO SHOWCASE -->
+      <div class="piccolo-feature" data-reveal>
+        <div class="piccolo-feature-image">
+          <img src="images/piccolos.jpg" alt="Piccolotrompeten im Detail" />
+        </div>
+        <div class="piccolo-feature-text">
+          <span class="section-label">Im Detail</span>
+          <h3>Piccolotrompeten</h3>
+          <p>Für den hellen, brillanten Klang in barocker und zeitgenössischer Musik — unsere Sammlung an Piccolotrompeten deckt jede klangliche Anforderung ab.</p>
+        </div>
       </div>
 
       <div class="occasions-block" data-reveal>
@@ -116,6 +123,56 @@
         <h2>Anfrage stellen</h2>
         <p>Für Verfügbarkeit, Programm und Konditionen — wir melden uns zeitnah.</p>
         <a href="kontakt.html" class="btn-primary">Jetzt anfragen</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header" data-reveal style="justify-content: center; text-align: center; flex-direction: column;">
+        <span class="section-label" style="justify-content: center;">Stimmen</span>
+        <h2>Was Gäste über uns sagen</h2>
+      </div>
+      <div class="testimonial-carousel" data-reveal>
+        <div class="testimonial-slide active">
+          <p class="testimonial-quote">Das Konzert war der absolute Höhepunkt unserer Hochzeitsfeier. Professionell, herzlich und musikalisch auf höchstem Niveau.</p>
+          <p class="testimonial-author">— <span>J. &amp; T.</span>, Hochzeit</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Von der ersten Anfrage bis zum letzten Ton — die Kommunikation war unkompliziert und die Musiker haben unseren Firmenabend unvergesslich gemacht.</p>
+          <p class="testimonial-author">— <span>M. F.</span>, Firmenjubiläum</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Ein Ensemble, das genau zuhört, was man sich wünscht, und es dann übertrifft. Absolute Empfehlung für jede Veranstaltung.</p>
+          <p class="testimonial-author">— <span>K. W.</span>, Gottesdienst</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Termine, Programmabsprache, Anreise — alles lief reibungslos. Und musikalisch war es schlicht mitreißend.</p>
+          <p class="testimonial-author">— <span>S. K.</span>, Sommerfest</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Bilder einer Ausstellung in einer Blechbläserfassung zu erleben war überwältigend — eine völlig neue Klangdimension für ein bekanntes Werk.</p>
+          <p class="testimonial-author">— <span>A. R.</span>, Klangkörperfestival Theater Aachen</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Das Weihnachtsoratorium mit diesem Ensemble war die perfekte Einstimmung auf Weihnachten — festlich, präzise und voller Wärme.</p>
+          <p class="testimonial-author">— <span>L. M.</span>, Weihnachtsoratorium</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Die Balance zwischen technischer Brillanz und musikalischer Tiefe hat mich wirklich beeindruckt. So sollte Bach klingen.</p>
+          <p class="testimonial-author">— <span>D. H.</span>, Weihnachtsoratorium</p>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-quote">Ein Abend, der noch lange nachklingt. Die Interpretation von Mussorgsky für Blechbläser war mutig und hat komplett überzeugt.</p>
+          <p class="testimonial-author">— <span>P. S.</span>, Klangkörperfestival Theater Aachen</p>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots"></div>
+      <div class="feedback-cta" data-reveal>
+        <p>Sie haben mit uns musiziert oder eine Anfrage gestellt? Wir freuen uns über Ihr Feedback.</p>
+        <a href="kontakt.html" class="btn-ghost">Feedback geben</a>
       </div>
     </div>
   </section>
@@ -146,7 +203,7 @@
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
   <script>
     (function() {
-      var cities = [{"name": "Montpellier", "lat": 43.6108, "lon": 3.8767}, {"name": "Montferrier-sur-Lez", "lat": 43.6653, "lon": 3.8611}, {"name": "Dublin", "lat": 53.3498, "lon": -6.2603}, {"name": "Galway", "lat": 53.2707, "lon": -9.0568}, {"name": "New York", "lat": 40.7128, "lon": -74.006}, {"name": "Oslo", "lat": 59.9139, "lon": 10.7522}, {"name": "Amsterdam", "lat": 52.3676, "lon": 4.9041}, {"name": "Lüttich", "lat": 50.6326, "lon": 5.5797}, {"name": "Maastricht", "lat": 50.8514, "lon": 5.691}, {"name": "London", "lat": 51.5074, "lon": -0.1278}, {"name": "Kerkrade", "lat": 50.8624, "lon": 6.0664}, {"name": "Aachen", "lat": 50.7753, "lon": 6.0839}, {"name": "Düsseldorf", "lat": 51.2277, "lon": 6.7735}, {"name": "Mönchengladbach", "lat": 51.1805, "lon": 6.4428}, {"name": "Roermond", "lat": 51.1942, "lon": 5.9873}, {"name": "München", "lat": 48.1351, "lon": 11.582}, {"name": "Freiburg", "lat": 47.999, "lon": 7.8421}, {"name": "Würzburg", "lat": 49.7913, "lon": 9.9534}, {"name": "Riva del Garda", "lat": 45.885, "lon": 10.841}, {"name": "Toblach", "lat": 46.7333, "lon": 12.2167}, {"name": "Leipzig", "lat": 51.3397, "lon": 12.3731}, {"name": "Dresden", "lat": 51.0504, "lon": 13.7373}, {"name": "Brixen", "lat": 46.715, "lon": 11.655}, {"name": "Edinburgh", "lat": 55.9533, "lon": -3.1883}, {"name": "Glasgow", "lat": 55.8642, "lon": -4.2518}, {"name": "Gateshead", "lat": 54.9526, "lon": -1.6033}, {"name": "Rom", "lat": 41.9028, "lon": 12.4964}, {"name": "Verona", "lat": 45.4384, "lon": 10.9916}, {"name": "Wien", "lat": 48.2082, "lon": 16.3738}, {"name": "Innsbruck", "lat": 47.2692, "lon": 11.4041}, {"name": "Belfort", "lat": 47.6379, "lon": 6.863}, {"name": "Strasbourg", "lat": 48.5734, "lon": 7.7521}, {"name": "Hamburg", "lat": 53.5511, "lon": 9.9937}, {"name": "Berlin", "lat": 52.52, "lon": 13.405}, {"name": "Köln", "lat": 50.9375, "lon": 6.9603}, {"name": "Bonn", "lat": 50.7374, "lon": 7.0982}, {"name": "Heidelberg", "lat": 49.3988, "lon": 8.6724}, {"name": "Stuttgart", "lat": 48.7758, "lon": 9.1829}, {"name": "Dortmund", "lat": 51.5136, "lon": 7.4653}, {"name": "Paris", "lat": 48.8566, "lon": 2.3522}, {"name": "Porto", "lat": 41.1579, "lon": -8.6291}, {"name": "Shanghai", "lat": 31.2304, "lon": 121.4737}, {"name": "Singapur", "lat": 1.3521, "lon": 103.8198}, {"name": "Guangzhou", "lat": 23.1291, "lon": 113.2644}, {"name": "San Diego", "lat": 32.7157, "lon": -117.1611}, {"name": "Rio de Janeiro", "lat": -22.9068, "lon": -43.1729}, {"name": "Passau", "lat": 48.5665, "lon": 13.4312}, {"name": "Weimar", "lat": 50.9795, "lon": 11.3235}, {"name": "Neubrandenburg", "lat": 53.5578, "lon": 13.2607}, {"name": "Minden", "lat": 52.2905, "lon": 8.9153}, {"name": "Osnabrück", "lat": 52.2799, "lon": 8.0472}, {"name": "Saarbrücken", "lat": 49.2401, "lon": 6.9969}, {"name": "Viersen", "lat": 51.2547, "lon": 6.3928}, {"name": "Heinsberg", "lat": 51.0658, "lon": 6.0972}, {"name": "Peking", "lat": 39.9042, "lon": 116.4074}, {"name": "Krefeld", "lat": 51.3388, "lon": 6.5853}, {"name": "Zürich", "lat": 47.3769, "lon": 8.5417}, {"name": "Essen", "lat": 51.4556, "lon": 7.0116}, {"name": "Duisburg", "lat": 51.4344, "lon": 6.7623}, {"name": "Bamberg", "lat": 49.8988, "lon": 10.9028}, {"name": "Mailand", "lat": 45.4642, "lon": 9.19}, {"name": "Madrid", "lat": 40.4168, "lon": -3.7038}];
+      var cities = [{"name": "Montpellier", "lat": 43.6108, "lon": 3.8767}, {"name": "Montferrier-sur-Lez", "lat": 43.6653, "lon": 3.8611}, {"name": "Dublin", "lat": 53.3498, "lon": -6.2603}, {"name": "Galway", "lat": 53.2707, "lon": -9.0568}, {"name": "New York", "lat": 40.7128, "lon": -74.006}, {"name": "Oslo", "lat": 59.9139, "lon": 10.7522}, {"name": "Amsterdam", "lat": 52.3676, "lon": 4.9041}, {"name": "Lüttich", "lat": 50.6326, "lon": 5.5797}, {"name": "Maastricht", "lat": 50.8514, "lon": 5.691}, {"name": "London", "lat": 51.5074, "lon": -0.1278}, {"name": "Kerkrade", "lat": 50.8624, "lon": 6.0664}, {"name": "Aachen", "lat": 50.7753, "lon": 6.0839}, {"name": "Düsseldorf", "lat": 51.2277, "lon": 6.7735}, {"name": "Mönchengladbach", "lat": 51.1805, "lon": 6.4428}, {"name": "Roermond", "lat": 51.1942, "lon": 5.9873}, {"name": "München", "lat": 48.1351, "lon": 11.582}, {"name": "Freiburg", "lat": 47.999, "lon": 7.8421}, {"name": "Würzburg", "lat": 49.7913, "lon": 9.9534}, {"name": "Riva del Garda", "lat": 45.885, "lon": 10.841}, {"name": "Toblach", "lat": 46.7333, "lon": 12.2167}, {"name": "Leipzig", "lat": 51.3397, "lon": 12.3731}, {"name": "Dresden", "lat": 51.0504, "lon": 13.7373}, {"name": "Brixen", "lat": 46.715, "lon": 11.655}, {"name": "Edinburgh", "lat": 55.9533, "lon": -3.1883}, {"name": "Glasgow", "lat": 55.8642, "lon": -4.2518}, {"name": "Gateshead", "lat": 54.9526, "lon": -1.6033}, {"name": "Rom", "lat": 41.9028, "lon": 12.4964}, {"name": "Verona", "lat": 45.4384, "lon": 10.9916}, {"name": "Wien", "lat": 48.2082, "lon": 16.3738}, {"name": "Innsbruck", "lat": 47.2692, "lon": 11.4041}, {"name": "Belfort", "lat": 47.6379, "lon": 6.863}, {"name": "Strasbourg", "lat": 48.5734, "lon": 7.7521}, {"name": "Hamburg", "lat": 53.5511, "lon": 9.9937}, {"name": "Berlin", "lat": 52.52, "lon": 13.405}, {"name": "Köln", "lat": 50.9375, "lon": 6.9603}, {"name": "Bonn", "lat": 50.7374, "lon": 7.0982}, {"name": "Heidelberg", "lat": 49.3988, "lon": 8.6724}, {"name": "Stuttgart", "lat": 48.7758, "lon": 9.1829}, {"name": "Dortmund", "lat": 51.5136, "lon": 7.4653}, {"name": "Paris", "lat": 48.8566, "lon": 2.3522}, {"name": "Porto", "lat": 41.1579, "lon": -8.6291}, {"name": "Shanghai", "lat": 31.2304, "lon": 121.4737}, {"name": "Singapur", "lat": 1.3521, "lon": 103.8198}, {"name": "Guangzhou", "lat": 23.1291, "lon": 113.2644}, {"name": "San Diego", "lat": 32.7157, "lon": -117.1611}, {"name": "Rio de Janeiro", "lat": -22.9068, "lon": -43.1729}, {"name": "Passau", "lat": 48.5665, "lon": 13.4312}, {"name": "Weimar", "lat": 50.9795, "lon": 11.3235}, {"name": "Neubrandenburg", "lat": 53.5578, "lon": 13.2607}, {"name": "Minden", "lat": 52.2905, "lon": 8.9153}, {"name": "Osnabrück", "lat": 52.2799, "lon": 8.0472}, {"name": "Saarbrücken", "lat": 49.2401, "lon": 6.9969}, {"name": "Viersen", "lat": 51.2547, "lon": 6.3928}, {"name": "Heinsberg", "lat": 51.0658, "lon": 6.0972}, {"name": "Peking", "lat": 39.9042, "lon": 116.4074}, {"name": "Krefeld", "lat": 51.3388, "lon": 6.5853}, {"name": "Zürich", "lat": 47.3769, "lon": 8.5417}, {"name": "Essen", "lat": 51.4556, "lon": 7.0116}, {"name": "Duisburg", "lat": 51.4344, "lon": 6.7623}, {"name": "Bamberg", "lat": 49.8988, "lon": 10.9028}, {"name": "Mailand", "lat": 45.4642, "lon": 9.19}, {"name": "Madrid", "lat": 40.4168, "lon": -3.7038}, {"name": "Wuppertal", "lat": 51.2562, "lon": 7.1508}];
 
       var container = document.getElementById('d3-map-container');
       var tooltip = document.getElementById('mapTooltip');
@@ -261,55 +318,6 @@
       });
     })();
   </script>
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials-section">
-    <div class="container">
-      <div class="section-header" data-reveal style="justify-content: center; text-align: center; flex-direction: column;">
-        <span class="section-label" style="justify-content: center;">Stimmen</span>
-        <h2>Was Gäste über uns sagen</h2>
-      </div>
-      <div class="testimonial-carousel" data-reveal>
-        <div class="testimonial-slide active">
-          <p class="testimonial-quote">Das Konzert war der absolute Höhepunkt unserer Hochzeitsfeier. Professionell, herzlich und musikalisch auf höchstem Niveau.</p>
-          <p class="testimonial-author">— <span>J. &amp; T.</span>, Hochzeit in Aachen</p>
-        </div>
-        <div class="testimonial-slide">
-          <p class="testimonial-quote">Von der ersten Anfrage bis zum letzten Ton — die Kommunikation war unkompliziert und die Musiker haben unseren Firmenabend unvergesslich gemacht.</p>
-          <p class="testimonial-author">— <span>M. F.</span>, Firmenjubiläum</p>
-        </div>
-        <div class="testimonial-slide">
-          <p class="testimonial-quote">Ein Ensemble, das genau zuhört, was man sich wünscht, und es dann übertrifft. Absolute Empfehlung für jede Veranstaltung.</p>
-          <p class="testimonial-author">— <span>K. W.</span>, Gottesdienst</p>
-        </div>
-        <div class="testimonial-slide">
-          <p class="testimonial-quote">Termine, Programmabsprache, Anreise — alles lief reibungslos. Und musikalisch war es schlicht mitreißend.</p>
-          <p class="testimonial-author">— <span>S. K.</span>, Stadtfest Aachen</p>
-        </div>
-        <div class="testimonial-slide">
-          <p class="testimonial-quote">Bilder einer Ausstellung in einer Blechbläserfassung zu erleben war überwältigend — eine völlig neue Klangdimension für ein bekanntes Werk.</p>
-          <p class="testimonial-author">— <span>A. R.</span>, Klangkörperfestival Theater Aachen</p>
-        </div>
-        <div class="testimonial-slide">
-          <p class="testimonial-quote">Das Weihnachtsoratorium mit diesem Ensemble war die perfekte Einstimmung auf Weihnachten — festlich, präzise und voller Wärme.</p>
-          <p class="testimonial-author">— <span>L. M.</span>, Weihnachtsoratorium</p>
-        </div>
-        <div class="testimonial-slide">
-          <p class="testimonial-quote">Die Balance zwischen technischer Brillanz und musikalischer Tiefe hat mich wirklich beeindruckt. So sollte Bach klingen.</p>
-          <p class="testimonial-author">— <span>D. H.</span>, Weihnachtsoratorium</p>
-        </div>
-        <div class="testimonial-slide">
-          <p class="testimonial-quote">Ein Abend, der noch lange nachklingt. Die Interpretation von Mussorgsky für Blechbläser war mutig und hat komplett überzeugt.</p>
-          <p class="testimonial-author">— <span>P. S.</span>, Klangkörperfestival Theater Aachen</p>
-        </div>
-      </div>
-      <div class="testimonial-dots" id="testimonialDots"></div>
-      <div class="feedback-cta" data-reveal>
-        <p>Sie haben mit uns musiziert oder eine Anfrage gestellt? Wir freuen uns über Ihr Feedback.</p>
-        <a href="kontakt.html" class="btn-ghost">Feedback geben</a>
-      </div>
-    </div>
-  </section>
 
   <footer class="footer">
     <div class="container">
