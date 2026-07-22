@@ -1422,6 +1422,52 @@ body::before {
   100% { r: 14; opacity: 0; }
 }
 
+/* ============================================
+   MEMBER ORCHESTRAS
+   ============================================ */
+.orchestras-section { background: var(--bg-alt); position: relative; overflow: hidden; }
+.orchestras-section::before {
+  content: '';
+  position: absolute;
+  top: -10%; right: -5%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--gold-subtle) 0%, transparent 70%);
+  pointer-events: none;
+}
+.orchestras-section .container { position: relative; z-index: 1; }
+
+.orchestras-intro { max-width: 640px; margin-bottom: 44px; }
+.orchestras-intro p { margin-top: 12px; }
+
+.orchestras-grid {
+  display: flex; flex-wrap: wrap; gap: 12px;
+}
+.orchestra-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 22px;
+  border: 1px solid var(--surface-border);
+  border-radius: 100px;
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  font-size: 14px; font-weight: 400; color: var(--text-primary);
+  transition: all var(--transition);
+}
+[data-theme="dark"] .orchestra-badge { border-color: rgba(196,154,42,0.15); }
+.orchestra-badge:hover {
+  border-color: var(--gold); color: var(--gold); opacity: 1;
+  transform: translateY(-2px);
+}
+.orchestra-badge svg { flex-shrink: 0; opacity: 0.6; }
+.orchestra-badge:hover svg { opacity: 1; }
+
+.orchestras-more {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
 /* Fallback state: subtle dot-grid background when country borders can't load */
 .d3-map-container {
   background-image: radial-gradient(circle, var(--surface-border) 1px, transparent 1px);
